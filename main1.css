@@ -1,6 +1,10 @@
 @charset "UTF-8";
 body{
   text-shadow: none;
+  /*moje*/
+  /*-webkit-touch-callout: none;                 prevent callout to copy image, etc when tap to hold */
+-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+-webkit-user-select: none;           
 }
 
 .collapsable-source pre {

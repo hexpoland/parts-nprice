@@ -1,6 +1,6 @@
 var code1,isreplace;
 $(function() {
-    $( "#result_strip ul.thumbnails > li .thumbnail img").bind( "taphold", function(){
+    $( ".thumbnails").on( "taphold",'.thumbnail',function(){
         alert('Holder');
     } );
     $('#exec').click(function() {
@@ -245,7 +245,7 @@ $(function() {
             number=price.indexOf(code,temp);
             //jeżeli znaleziono lub nie
             if(number>-1){
-            temp=number+code.length;
+            temp=number+code.length; //pomijamy znaleziony element
             var name=price.indexOf('<p class="calibre1">',temp);
             console.log('DEBUG:'+price.substring(number-35,number));
             if(!price.substring(number-35,number).match(/zastąpiono.*/g)){ //spraedzanie numeru czy jest poprawnym indexem
