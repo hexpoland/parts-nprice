@@ -1,7 +1,10 @@
 var code1,isreplace;
 $(function() {
     $( ".thumbnails").on( "taphold",'.thumbnail',function(){
-        alert('Holder');
+        if (confirm("Wysłać pozycje mailem?")==true) {
+            window.location.href='mailto:?body='+$(this).children('.caption').text();
+        }
+        
     } );
     $('#exec').click(function() {
         /* Act on the event */
@@ -128,7 +131,7 @@ $(function() {
         },
         state: {
             inputStream: {
-                size: 800
+                size: 1240
             },
             locator: {
                 patchSize: patch, //medium narazie najlepsze wyniki w testach najlepiej zrobic w petli
@@ -174,7 +177,7 @@ $(function() {
             // opcja pierwsza do zmiany wielkosci
             if (!found) {
                 var actsize=App.state.locator.patchSize;
-                
+                //App.setState('inputStream.size','1240');
                 switch (actsize) {
                     case 'small':
                         App.setState('locator.patchSize','medium');
@@ -184,6 +187,12 @@ $(function() {
                     case 'medium':
                         
                         App.setState('locator.patchSize','large');
+                        if(!found){
+                            App.setState('inputStream.size','1400');
+                            $('.controls button').click();
+
+                            break;
+                        }
                         $('.controls button').click();
 
                         break;
@@ -203,7 +212,7 @@ $(function() {
                 // App.setState('locator.patchSize','medium');
                 
                 
-
+                App.setState('inputStream.size','1240');
                 
 
 
