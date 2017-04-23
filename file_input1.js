@@ -1,5 +1,14 @@
 var code1,isreplace;
 $(function() {
+    $("#uszkodzony").bind('change', function() {
+        if($(this).is(':checked')){
+            App.setState('locator.halfSample','true');
+            console.log('Zmiana na true')
+        }else{
+            App.setState('locator.halfSample','false');
+            console.log('zmiana na false');
+        }
+    });
     $( ".thumbnails").on( "taphold",'.thumbnail',function(){
         if (confirm("Wysłać pozycje mailem?")==true) {
             window.location.href='mailto:?body='+$(this).children('.caption').text();
@@ -10,6 +19,13 @@ $(function() {
         /* Act on the event */
         $('.inputfile').click();
         App.setState('locator.patchSize','small'); //resetujemy wielkosc skanera
+        $.mobile.loading( "show", {
+            text: msgText,
+            textVisible: textVisible,
+            theme: theme,
+            textonly: textonly,
+            html: html
+    });
         
     });
     $('#refresh').click(function() {
@@ -152,6 +168,7 @@ $(function() {
     App.init();
 
     Quagga.onProcessed(function(result) {
+
         var drawingCtx = Quagga.canvas.ctx.overlay,
             drawingCanvas = Quagga.canvas.dom.overlay;
         var found=false;
@@ -325,11 +342,28 @@ $(function() {
         $node.find("h5.code").html(number+name+cena);
         $("#result_strip ul.thumbnails").prepend($node);
         wykryty=true;
+        $.mobile.loading( "hide" );
         });
        
             
     
 });
+
+$( document ).on( "change", ".inputfile", function() {
+    var $this = $( this ),
+        theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+        msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+        textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+        textonly = !!$this.jqmData( "textonly" );
+        html = $this.jqmData( "html" ) || "";
+    $.mobile.loading( "show", {
+            text: msgText,
+            textVisible: textVisible,
+            theme: theme,
+            textonly: textonly,
+            html: html
+    });
+})
                     
         
 

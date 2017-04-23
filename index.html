@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 
+
 <link rel="apple-touch-startup-image" media="screen and (max-device-width: 320px)" href="img/launch.png">
 <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <link href="img/apple-icon2.png" rel="apple-touch-icon" />
@@ -33,6 +34,11 @@
       <li>Kod kreskowy na folii nie może być zagięty</li>
       <li>Kod kreskowy nie może być uszkodzony</li>
     </ol>
+   <form style="margin:40px;">
+    <label for="flip-3">Kod uszkodzony:</label>
+    <input type="checkbox" data-role="flipswitch" name="flip-checkbox-4" id="uszkodzony">
+
+</form>
     <fieldset class="reader-config-group">
           <label style="visibility: hidden;">
               <span>Typ kodu</span>
@@ -70,9 +76,10 @@
                   <option  value="x-large">x-large</option>
               </select>
           </label>
-          
+         
          
       </fieldset>
+
 
 
   </div> </div>
@@ -88,6 +95,7 @@
     <!-- result view -->
   <div id="result_strip" style="font-family: Roboto Condensed;font-size: 16px;">
     <ul class="thumbnails"></ul>
+    <br>
   </div>
   <div id="interactive" class="viewport"></div>
   <div class="controls">

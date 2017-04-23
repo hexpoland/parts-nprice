@@ -1,5 +1,6 @@
 @charset "UTF-8";
 body{
+  background-color: #68fadd;
   text-shadow: none;
   /*moje*/
   /*-webkit-touch-callout: none;                 prevent callout to copy image, etc when tap to hold */
