@@ -1,5 +1,6 @@
 var code1,isreplace;
 $(function() {
+    $(".button-collapse").sideNav();
     $("#uszkodzony").bind('change', function() {
         if($(this).is(':checked')){
             App.setState('locator.halfSample','true');
@@ -19,13 +20,13 @@ $(function() {
         /* Act on the event */
         $('.inputfile').click();
         App.setState('locator.patchSize','small'); //resetujemy wielkosc skanera
-        $.mobile.loading( "show", {
-            text: msgText,
-            textVisible: textVisible,
-            theme: theme,
-            textonly: textonly,
-            html: html
-    });
+    //     $.mobile.loading( "show", {
+    //         text: msgText,
+    //         textVisible: textVisible,
+    //         theme: theme,
+    //         textonly: textonly,
+    //         html: html
+    // });
         
     });
     $('#refresh').click(function() {
@@ -337,33 +338,33 @@ $(function() {
 
             //moj kod
 
-        $node = $('<li><div class="thumbnail"><div class="imgWrapper"><img /></div><div class="caption"><h5 class="code"></h4></div></div></li>');
+        $node = $('<li><div class="thumbnail"><div class="imgWrapper"><img /></div><div class="caption"><h6 class="code"></h6></div></div></li>');
         $node.find("img").attr("src", canvas.toDataURL());
-        $node.find("h5.code").html(number+name+cena);
+        $node.find("h6.code").html(number+name+cena);
         $("#result_strip ul.thumbnails").prepend($node);
         wykryty=true;
-        $.mobile.loading( "hide" );
+        // $.mobile.loading( "hide" );
         });
        
             
     
 });
 
-$( document ).on( "change", ".inputfile", function() {
-    var $this = $( this ),
-        theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
-        msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
-        textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
-        textonly = !!$this.jqmData( "textonly" );
-        html = $this.jqmData( "html" ) || "";
-    $.mobile.loading( "show", {
-            text: msgText,
-            textVisible: textVisible,
-            theme: theme,
-            textonly: textonly,
-            html: html
-    });
-})
+// $( document ).on( "change", ".inputfile", function() {
+//     var $this = $( this ),
+//         theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+//         msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+//         textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+//         textonly = !!$this.jqmData( "textonly" );
+//         html = $this.jqmData( "html" ) || "";
+//     $.mobile.loading( "show", {
+//             text: msgText,
+//             textVisible: textVisible,
+//             theme: theme,
+//             textonly: textonly,
+//             html: html
+//     });
+// })
                     
-        
+
 
